@@ -10,6 +10,7 @@ public class Main{
         reporter.report(user);
         persister.save(user);
 
+        // Вторая проверка:
         System.out.println();
         User tom = new User("Tom");
         reporter.report(tom);
@@ -22,4 +23,6 @@ public class Main{
 * был перенесен метод report(). Метод save() был удален из класса User так как он реализован в классе Persister.
 * Так же в класс Persister был закрыт для расширения. То есть нарушен "Принцип открытости-закрытости"
 * Было исправлено имплементацией интерфейса Saveable.
+* Также в классе Persister было убрано поле User, теперь user непосредственно передаётся в метод. Аналогично
+* всё выполнено в классе Reporter.
 * */

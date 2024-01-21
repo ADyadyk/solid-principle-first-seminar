@@ -14,16 +14,15 @@ public class Main {
         shapes.add(new Square(4));
         double sumArea = 0;
         for (Shape shape : shapes) {
-            if (shape instanceof RightTriangle) {
-                RightTriangle triangle = (RightTriangle) shape;
-                sumArea += triangle.getLeg1() * triangle.getLeg2() / 2.0;
-            }
-            if (shape instanceof Square) {
-                Square square = (Square) shape;
-                sumArea += Math.pow(square.getSide(), 2);
-            }
+            sumArea += shape.getArea();
         }
 
         System.out.printf("Sum of areas equals %f \n", sumArea);
     }
 }
+/*
+ * Был нарушен "Принцип открытости-закрытости"
+ * Метод подсчёта площади был добавлен в интерфейс Shape. Данный метод в итоге был реализован в каждом классе,
+ * который имплементирует данный интерфейс, а в методе Main() был вызван метод getArea() через экземпляр shape.
+ * Таким образом изменив код мы сделали его более универсальным.
+ * */

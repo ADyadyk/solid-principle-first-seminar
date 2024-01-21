@@ -1,6 +1,6 @@
 package dip1.model;
 
-import dip1.model.util.ReportPrinter;
+import dip1.model.util.PrinterReporter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +15,7 @@ public class Report{
         items.add(new ReportItem("Second", (float)6));
     }
 
-    public void output(){
-        ReportPrinter reportPrint = new ReportPrinter();
-        reportPrint.output(items);
+    public List<ReportItem> getItems() {
+        return items;
     }
 }
